@@ -3,39 +3,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedbackDiv = document.getElementById('form-feedback')
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault()
+        event.preventDefault() // Prevent form submission
 
-        let isValid = true
-        let messages = []
+        let isValid = true;
+        let messages = [];
 
-        const username = (document.getElementById('username')).trim()
-
-        if (username.length < 3){
-            isValid = false
-            messages.push("Username can't be less than 3 characters")
+        // Validates username
+        const username = (document.getElementById('username')).value.trim()
+        if (username.value.length < 3){
+            isValid = false;
+            messages.push("Username can't be less than 3 characters");
         }
 
-        const email = document.getElementById('email').trim()
-
+        // Validates email
+        const email = document.getElementById('email').value.trim()
         if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailInput.value)){
-            isValid = false
-            messages.push("Enter a valid email")
+            isValid = false;
+            messages.push("Enter a valid email");
         }
 
+        // Validates password 
         const password = document.getElementById('password')
-
         if (password < 8){
-            isValid = false
-            messages.push("Password can't be less than 8 characters")
+            isValid = false;
+            messages.push("Password can't be less than 8 characters");
         }
-
-        feedbackDiv.style.display = "block"
 
         if (isValid){
-            feedbackDiv.textContent = "Registration successful!"
+            feedbackDiv.style.display = "block";
+            feedbackDiv.textContent = "Registration successful!";
+            feedbackDiv.style.color = "#28a745";
+        } else {
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerHTML = messages.join('<br>');
+            feedbackDiv.style.color = "#dc3545";
         }
 
-        form.submit()
-    })
+        form.submit();
+    });
 });
 
