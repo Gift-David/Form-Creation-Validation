@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Validates username
         const username = (document.getElementById('username')).value.trim()
-        if (username.value.length < 3){
+        if (username.length < 3){
             isValid = false;
             messages.push("Username can't be less than 3 characters");
         }
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Validates password 
         const password = document.getElementById('password')
-        if (password < 8){
+        if (password.length < 8){
             isValid = false;
             messages.push("Password can't be less than 8 characters");
         }
