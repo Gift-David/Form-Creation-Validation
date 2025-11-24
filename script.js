@@ -12,21 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (username.length < 3){
             isValid = false
-            messages += "Username can't be less than 3 characters"
+            messages.push("Username can't be less than 3 characters")
         }
 
         const email = document.getElementById('email').trim()
 
         if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(emailInput.value)){
             isValid = false
-            messages += "Enter a valid email"
+            messages.push("Enter a valid email")
         }
 
         const password = document.getElementById('password')
 
         if (password < 8){
             isValid = false
-            messages += "Password can't be less than 8 characters"
+            messages.push("Password can't be less than 8 characters")
         }
 
         feedbackDiv.style.display = "block"
